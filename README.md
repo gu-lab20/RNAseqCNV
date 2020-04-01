@@ -167,11 +167,11 @@ or by unchecking the appropriate box in the Shiny app interface.
 ###### 2.1.5.3 Diploid adjustment <a name="diploid_adjustment"></a>
 Some samples may have high proportion of chromosomes with CNVs, such as the one below:
 
-![Figure with high number of CNVs without adjustment](./README/near_hap_nonadj.png)
+![Figure with high number of CNVs without adjustment](./README/fig/near_hap_nonadj.png)
 
 With regard to the relative nature of RNA-seq data, in such samples the normalized expression of stably expressed genes on diploid chromosomes will not be centered around zero. To address this issue, the package includes a random forest model, which classifies chromosomes as either diploid or non-diploid. Based on that information the figure is centered in a way that the chromosomes, which are estimated as diploid, are centered around zero:
 
-![Figure with high number of CNVs with adjustment](./README/near_hap_adj.png)
+![Figure with high number of CNVs with adjustment](./README/fig/near_hap_adj.png)
 
 This functionality is by default turned on. To disable it:
 ```
@@ -185,7 +185,7 @@ The output (figures and tables) of both wrapper and the Shiny app will be saved 
 
 ##### 2.2.1 Main figure <a name="main_figure"></a>
 
-![main figure 1](./README/main_fig_1.png)
+![main figure 1](./README/fig/main_fig_1.png)
 
 The main figure consists of two panels.
 
@@ -195,7 +195,7 @@ The bottom panel shows the density graphs of MAF for each chromosome. It is impo
 
 ##### 2.2.2 Arm-level figures <a name="arm_level_figure"></a>
 
-![arm level figure 1](./README/arm_level_1.png)
+![arm level figure 1](./README/fig/arm_level_1.png)
 
 Users have the option to generate close up figures of each chromosome with either
 
@@ -227,7 +227,7 @@ Both panels of the main figure are important for discerning large-scale CNVs. By
 
 The figure below will serve as an example for result interpretation.
 
-![main figure 2](./README/main_fig_2.png)
+![main figure 2](./README/fig/main_fig_2.png)
 
 - diploid chromosomes: 1, 2, 3, 4, 5, 7, 8, 11, 12, 13, 15, 16, 19, 20, 22. The expression should be centered around zero (especially if diploid level adjustment was performed). The density graphs have a clear, high peak around 0.5 as would be expected with two chromosomes with two different alleles. SNVs with MAF outside the range 0.05 to 0.9 are filtered since these are mostly unifnormative.
 
@@ -241,11 +241,11 @@ The figure below will serve as an example for result interpretation.
 
 - partial gain/loss: The expression level level of partial gain/deletion is somewhere in between the diploid chromosomes and chromosomes with whole chromosomal change. The MAF density graph is distorted, but not in a typical pattern. Partial changes are marked as "ab" in the main figure which can lead us to further examination of this chromosome in the arm-level figure:
 
-![arm level figure 2](./README/arm_level_2.png)
+![arm level figure 2](./README/fig/arm_level_2.png)
 
 In this case, it is clear, that there is at least partial gain on q arm of chromosome 17.
 
-![Figure with high number of deletions](./README/near_hap_adj.png)
+![Figure with high number of deletions](./README/fig/near_hap_adj.png)
 
 - deletion: 1, 2, 3, 4, 5, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 19, 20, 22. The deletions have significantly lower expression in comparison to diploid chromosomes. Also the MAF density graph suggests, that there is only a single allele. However, the deletion of chromosome 17 is not complete since there is still small but visible peak around 0.5.
 
@@ -257,7 +257,7 @@ launchApp()
 ```
 #### 4.1 Input tab <a name="input_tab"></a>
 
-![Input tab](./README/input_tab.png)
+![Input tab](./README/fig/input_tab.png)
 
 The shiny app needs a metadata file and a config file to function. If both files are suplied and the analysis has not yet been performed the users can analyse either only the first sample or analyze all of the samples from the metadata table. In case that the analysis with this metadata file and config file was already perfomed (either through RNAseqCNV_wrapper or with the app during earlier instance), the two other tabs (Manual CNV analysis and Export) will be shown.
 
@@ -267,11 +267,11 @@ Users can tweak the arguments [(mentioned earlier)](#basic_params) for the analy
 In case the user wants to test the app and the package as a whole, there is an option to perform mock analysis on in-built dat. It can be run without any input (even without config and metadata). The results will be stored in the directory selected by the user after clicking the button "Mock analysis". The Manual analysis tab and Export tab will be shown after the in-built samples are analyzed.
 
 #### 4.2 Manual analysis tab <a name="manual_analysis_tab"></a>
-![Manual analysis tab](./README/manual_analysis_tab.png)
+![Manual analysis tab](./README/fig/manual_analysis_tab.png)
 
 In this tab, users can browse through the analyzed samples and arm-level figures (if generated). The user can correct the results manually and add comments. After the corrections are completed "Save" button should be clicked in order to save the changes into the manual analysis table in the output directory. In case the user wants to revert the changes back to the default as produced by the analysis, button "Default analysis" can be clicked to achieve this.
 
 #### 4.3 Export <a name="export_tab"></a>
-![Export tab](./README/export_tab.png)
+![Export tab](./README/fig/export_tab.png)
 
 The tab enables to customize the estimation table by selecting the desired columns to be kept. This table can be subsequently saved into a directory, which is chosen after clicking the "Export to selected directory" button.
