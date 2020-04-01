@@ -258,7 +258,7 @@ launchApp()
 #### 4.1 Input tab <a name="input_tab"></a>
 
 ![Input tab](./README/fig/input_tab.png)
-
+ 
 The shiny app needs a metadata file and a config file to function. If both files are suplied and the analysis has not yet been performed the users can analyse either only the first sample or analyze all of the samples from the metadata table. In case that the analysis with this metadata file and config file was already perfomed (either through RNAseqCNV_wrapper or with the app during earlier instance), the two other tabs (Manual CNV analysis and Export) will be shown.
 
 Users can tweak the arguments [(mentioned earlier)](#basic_params) for the analysis through check boxes and radio buttons.
